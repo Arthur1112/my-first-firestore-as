@@ -16,6 +16,24 @@ const restaurant = {
     phone: '(786) 677-2903', 
 }
 
-db.collection('restaurants').add(restaurant)
-.then(doc => console.log('Created restaurant', doc.id))
-.catch(err => console.error(err))
+// db.collection('restaurants').add(restaurant)
+// .then(doc => console.log('Created restaurant', doc.id))
+// .catch(err => console.error(err))
+
+const restaurant2 = {
+    name: 'Bolay',
+    address: '7060 W Palmetto Park Rd',
+    cuisine: 'American',
+    rating: 4.6,
+}
+
+async function addRestaurant(data) {
+    try {
+        const doc = await db.collection('restaurants').add(data)
+        console.log('Created restaurant', doc.id)
+    } catch(err){
+        console.error(err)
+    }
+}
+
+addRestaurant(restaurant2)
