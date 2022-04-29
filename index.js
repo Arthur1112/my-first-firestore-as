@@ -1,6 +1,12 @@
+// import admin from "firebase-admin";
+
+// import serviceAccount from './credentials.js';
+
+
+
 const admin = require("firebase-admin"); // imports firebase library of tools
 
-const serviceAccount = require('./credentials.json'); // import our credentials to connect to firebase
+const serviceAccount = require('./credentials'); // import our credentials to connect to firebase
 
 admin.initializeApp({ // connects to our firebase project
   credential: admin.credential.cert(serviceAccount) //creating a certificate from our credentials
@@ -39,3 +45,4 @@ async function addRestaurant(data) {
 }
 
 addRestaurant(restaurant2)
+
